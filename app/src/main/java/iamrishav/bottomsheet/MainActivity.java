@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemL
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<String> items = new ArrayList<>();
+        final ArrayList<String> items = new ArrayList<>();
         items.add("Item 1");
         items.add("Item 2");
         items.add("Item 3");
@@ -66,12 +66,30 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemL
         mAdapter = new ItemAdapter(items, this);
         recyclerView.setAdapter(mAdapter);
 
-        Button button = (Button) findViewById(R.id.button);
+        Button button =  findViewById(R.id.button);
+        Button addButton=findViewById(R.id.add);
+
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+
+        //function to add 5 elements to the existing list and modify the recycler view.
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int n=items.size();
+                ArrayList<String>test=new ArrayList<>();
+                for(int i=n;i<=n+5;i++){
+                    String s=Integer.toString(i);
+                    test.add("Item "+s);
+                }
+                items.addAll(test);
+                mAdapter.notifyDataSetChanged();
             }
         });
 
@@ -86,4 +104,6 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemL
         behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
     }
+
+
 }

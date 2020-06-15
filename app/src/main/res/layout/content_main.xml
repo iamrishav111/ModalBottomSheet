@@ -12,9 +12,24 @@
     tools:context="iamrishav.bottomsheet.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <Button
+ <!--   <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button"
+        android:text="Bottom sheet" />-->
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Bottom sheet" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button"
+        android:text="Add Elements." />
+
 </RelativeLayout>
