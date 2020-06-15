@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemL
             public void onClick(View view) {
                 int n=items.size();
                 ArrayList<String>test=new ArrayList<>();
-                for(int i=n;i<=n+5;i++){
+                for(int i=n+1;i<=n+5;i++){
                     String s=Integer.toString(i);
                     test.add("Item "+s);
                 }
